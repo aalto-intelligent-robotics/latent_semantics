@@ -2,7 +2,7 @@
 
 <img src="img/header.png" alt="header-image" class="center" width="400"/>
 
-**Authors:** [Matti Pekkanen](https://research.aalto.fi/en/persons/matti-pekkanen) (<matti.pekkanen@aalto.fi>), [Francesco Verdoja](https://research.aalto.fi/en/persons/francesco-verdoja), [Tsvetomila Mihaylova ](https://research.aalto.fi/en/persons/tsvetomila-mihaylova), and [Ville Kyrki](https://research.aalto.fi/en/persons/ville-kyrki)\
+**Authors:** [Matti Pekkanen](https://research.aalto.fi/en/persons/matti-pekkanen) (<matti.pekkanen@aalto.fi>), [Tsvetomila Mihaylova ](https://research.aalto.fi/en/persons/tsvetomila-mihaylova), [Francesco Verdoja](https://research.aalto.fi/en/persons/francesco-verdoja), and [Ville Kyrki](https://research.aalto.fi/en/persons/ville-kyrki)\
 **Affiliation:** School of Electrical Engineering, Aalto University, Finland
 
 Visual-language models (VLMs) have recently been introduced in robotic mapping using the latent representations, i.e., embeddings, of the VLMs to represent semantics in the map. They allow moving from a limited set of human-created labels toward open-vocabulary scene understanding, which is very useful for robots when operating in complex real-world environments and interacting with humans. While there is anecdotal evidence that maps built this way support downstream tasks, such as navigation, rigorous analysis of the quality of the maps using these embeddings is missing.

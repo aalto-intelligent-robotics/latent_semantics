@@ -1,0 +1,35 @@
+# Do Visual-Language Grid Maps Capture Latent Semantics?
+
+<img src="../img/header.png" alt="header-image" class="center" width="400"/>
+
+**Authors:** [Matti Pekkanen](https://research.aalto.fi/en/persons/matti-pekkanen) (<matti.pekkanen@aalto.fi>), [Francesco Verdoja](https://research.aalto.fi/en/persons/francesco-verdoja), [Tsvetomila Mihaylova ](https://research.aalto.fi/en/persons/tsvetomila-mihaylova), and [Ville Kyrki](https://research.aalto.fi/en/persons/ville-kyrki)\
+**Affiliation:** School of Electrical Engineering, Aalto University, Finland
+
+Visual-language models (VLMs) have recently been introduced in robotic mapping using the latent representations, i.e., embeddings, of the VLMs to represent semantics in the map. They allow moving from a limited set of human-created labels toward open-vocabulary scene understanding, which is very useful for robots when operating in complex real-world environments and interacting with humans. While there is anecdotal evidence that maps built this way support downstream tasks, such as navigation, rigorous analysis of the quality of the maps using these embeddings is missing.
+In this paper, we propose a way to analyze the quality of maps created using VLMs. We investigate two critical properties of map quality: queryability and distinctness. The evaluation of queryability addresses the ability to retrieve information from the embeddings. We investigate intra-map distinctness to study the ability of the embeddings to represent abstract semantic classes and inter-map distinctness to evaluate the generalization properties of the representation.
+We propose metrics to evaluate these properties and evaluate two state-of-the-art mapping methods, VLMaps and OpenScene, using two encoders, LSeg and OpenSeg, using real-world data from the Matterport3D data set. Our findings show that while 3D features improve queryability, they are not scale invariant, whereas image-based embeddings generalize to multiple map resolutions. This allows the image-based methods to maintain smaller map sizes, which can be crucial for using these methods in real-world deployments. Furthermore, we show that the choice of the encoder has an effect on the results. The results imply that properly thresholding open-vocabulary queries is an open problem.
+
+
+## Citation
+
+If you find this work useful, please consider citing:
+
+```bibtex
+@inproceedings{pekkanen_2025_latent_semantics,
+	title = {Do Visual-Language Grid Maps Capture Latent Semantics?},
+	author = {Pekkanen, Matti and Verdoja, Francesco and Mihaylova, Tsvetomila and Kyrki, Ville},
+	year = {2025},
+	month = {October},
+	booktitle = {IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)},
+	publisher = {IEEE},
+	address = {Hangzhou, China},
+	pages = {XX--YY},
+	isbn = {XXX},
+	doi = {XXX},
+}
+
+```
+
+## Acknowledgements
+
+This work was supported by Business Finland (decision 9249/31/2021), the Research Council of Finland (decision 354909), Wallenberg AI, Autonomous Systems and Software Program, WASP and Saab AB. We gratefully acknowledge the support of NVIDIA Corporation with the donation of the Titan Xp GPUs used for this research.

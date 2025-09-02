@@ -1,4 +1,37 @@
+h1{
+    text-align: center;
+}
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    line-break: auto;
+    width: 75%;
+}
+.imagebox{
+    object-fit: contain;
+}
+.buttonbox {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.authorboxbox {
+    margin-bottom: 40px;
+}
+.abstract{
+    text-align: justify;
+    text-justify: inter-word;
+}
+.header-img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 400px;
+    min-width: 0px;
+    margin-bottom: 20px;
+}
 a.button{
+    transition: all .1s ease;
     display: inline-block;
     outline: none;
     cursor: pointer;
@@ -14,5 +47,5 @@ a.button{
 }
 a.button:hover {
     transition: all .1s ease;
-    box-shadow: 0 0 0 0 #fff, 0 0 0 3px #1de9b6;
+    background: #001ac2;
 }

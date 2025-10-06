@@ -1,53 +1,50 @@
-h1{
-    text-align: center;
+/* --- Design tokens --- */
+:root {
+    --bg: #ffffff;
+    --fg: #111827;
+    --muted: #4b5563;
+    --accent: #2563eb;
+    --accent-darker: #2563eb;
+    --accent-contrast: #ffffff;
+    --surface: #e4e7eb;
+    --ring: rgba(37, 99, 235, 0.35);
+    --radius: 14px;
+    --space: clamp(12px, 2.5vw, 28px);
+    --maxw: 68ch;
+    --hover-contrast: #ffffff;
+    --hover: #02246d;
 }
-.center {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    line-break: auto;
-    width: 75%;
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg: #0b0f13;
+        --fg: #e5e7eb;
+        --muted: #9ca3af;
+        --accent: #60a5fa;
+        --accent-darker: #2563eb;
+        --accent-contrast: #0b0f13;
+        --surface: #111827;
+        --ring: rgba(96, 165, 250, 0.4);
+        --hover-contrast: #2563eb;
+        --hover: #dae9fc;
+    }
 }
-.imagebox{
-    object-fit: contain;
+
+/* --- Larger viewports: relax max width, keep readability --- */
+@media (min-width: 768px) {
+    :root {
+        --maxw: 85ch;
+    }
 }
-.buttonbox {
-    text-align: center;
-    margin-bottom: 20px;
-}
-.authorboxbox {
-    margin-bottom: 40px;
-}
-.abstract{
-    text-align: justify;
-    text-justify: inter-word;
-}
-.header-img{
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 400px;
-    min-width: 0px;
-    margin-bottom: 20px;
-}
-a.button{
-    transition: all .1s ease;
-    display: inline-block;
-    outline: none;
-    cursor: pointer;
-    font-weight: 600;
-    border-radius: 3px;
-    padding: 12px 24px;
-    border: 0;
-    color: #fff;
-    background: #000a47;
-    line-height: 1.15;
-    font-size: 16px;
-    text-decoration: none;
-}
-a.button:hover {
-    transition: all .1s ease;
-    background: #001ac2;
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
+    }
 }
 
 /* --- CSS Reset-ish, mobile-first foundation --- */
@@ -60,7 +57,6 @@ a.button:hover {
 html {
     -webkit-text-size-adjust: 100%;
 }
-
 body {
     margin: 0;
     font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
@@ -71,42 +67,9 @@ body {
     background: var(--bg);
 }
 
-/* --- Design tokens --- */
-:root {
-    --bg: #ffffff;
-    --fg: #111827;
-    --muted: #4b5563;
-    --accent: #2563eb;
-    --accent-contrast: #ffffff;
-    --surface: #f8fafc;
-    --ring: rgba(37, 99, 235, 0.35);
-    --radius: 14px;
-    --space: clamp(12px, 2.5vw, 28px);
-    --maxw: 68ch;
-}
-
-/* Dark mode */
-@media (prefers-color-scheme: dark) {
-    :root {
-        --bg: #0b0f13;
-        --fg: #e5e7eb;
-        --muted: #9ca3af;
-        --accent: #60a5fa;
-        --accent-contrast: #0b0f13;
-        --surface: #111827;
-        --ring: rgba(96, 165, 250, 0.4);
-    }
-}
-
-/* --- Layout --- */
-.center {
-    width: min(100% - 2*var(--space), var(--maxw));
-    margin-inline: auto;
-    padding: calc(var(--space) * 1.25) 0 var(--space);
-}
-
-/* Headings scale nicely on mobile/desktop */
+/* --- Headings ---  */
 h1 {
+    text-align: center;
     margin: 0 0 var(--space);
     line-height: 1.15;
     font-size: clamp(1.6rem, 3.5vw + 0.5rem, 2.6rem);
@@ -116,6 +79,13 @@ h1 {
 h2 {
     margin: calc(var(--space) * 1.25) 0 var(--space) 0;
     font-size: clamp(1.25rem, 1.2vw + 1rem, 1.6rem);
+}
+
+/* --- Layout --- */
+.center {
+    width: min(100% - 2*var(--space), var(--maxw));
+    margin-inline: auto;
+    padding: calc(var(--space) * 1.25) 0 var(--space);
 }
 
 /* --- Media --- */
@@ -139,46 +109,63 @@ h2 {
     gap: 12px;
     margin-bottom: var(--space);
 }
-
-.button {
+a.button {
+    transition: all .1s ease;
     display: inline-block;
-    padding: 0.7rem 1rem;
-    border-radius: 999px;
-    text-decoration: none;
-    font-weight: 600;
-    background: var(--accent);
-    color: var(--accent-contrast);
     outline: none;
-    transition: transform 120ms ease, box-shadow 120ms ease;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.18), 0 1px 2px rgba(0, 0, 0, 0.12);
+    cursor: pointer;
+    font-weight: 600;
+    border-radius: 3px;
+    padding: 12px 24px;
+    border: 0;
+    color: #fff;
+    background: var(--accent-darker);
+    line-height: 1.15;
+    font-size: 16px;
+    text-decoration: none;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.28), 0 1px 2px rgba(0, 0, 0, 0.22);
 }
-
-.button:focus-visible {
-    box-shadow: 0 0 0 4px var(--ring);
-}
-
-.button:hover {
-    transform: translateY(-1px);
+a.button:hover {
+    transition: all .1s ease;
+    background: var(--hover);
+    color: var(--hover-contrast);
 }
 
 /* --- Text blocks --- */
+.authorboxbox {
+    margin-bottom: 40px;
+    font-size: 0.95em;
+    color: var(--muted);
+    margin-bottom: var(--space);
+}
+.abstract{
+    text-align: justify;
+    text-justify: inter-word;
+    padding: 1rem;
+    border-radius: var(--radius);
+    background: var(--surface);
+}
 .authorbox,
 .abstract,
 p {
     color: var(--fg);
 }
 
-.authorbox {
-    font-size: 0.95em;
-    color: var(--muted);
-    margin-bottom: var(--space);
+.title{
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+.break{
+    height: 20px;
+}
+a{
+    text-decoration: none;
+    color: var(--accent);
+}
+.link:hover{
+    color: var(--hover);
 }
 
-.abstract {
-    padding: 1rem;
-    border-radius: var(--radius);
-    background: var(--surface);
-}
 
 /* Code block (bibtex) */
 code.language-bibtex {
@@ -189,29 +176,4 @@ code.language-bibtex {
     background: var(--surface);
     font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
     font-size: 0.9em;
-}
-
-/* --- Links --- */
-a {
-    color: var(--accent);
-}
-
-a:hover {
-    text-decoration: underline;
-}
-
-/* --- Larger viewports: relax max width, keep readability --- */
-@media (min-width: 768px) {
-    :root {
-        --maxw: 85ch;
-    }
-}
-
-/* Reduce motion for users who prefer it */
-@media (prefers-reduced-motion: reduce) {
-    * {
-        animation: none !important;
-        transition: none !important;
-        scroll-behavior: auto !important;
-    }
 }

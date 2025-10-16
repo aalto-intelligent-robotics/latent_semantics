@@ -11,10 +11,35 @@ We propose metrics to evaluate these properties and evaluate two state-of-the-ar
 
 ## Installation
 
-```bash
-    # TODO
-```
+The repository consists of three subrepositores: [vlmaps](https://github.com/vlmaps/vlmaps), [openscene](https://github.com/pengsongyou/openscene), [openscene-lseg](https://github.com/pengsongyou/lseg_feature_extraction). Follow the installation steps of the original works. Follow the dataset acquisition steps from [vlmaps](https://github.com/vlmaps/vlmaps) repository.
 
+After installation, setup the environment via setup_environment.sh. The evaluation is performed in the vlmaps repository. First create all the maps with the three repositories, then run the analysis.
+
+```bash
+    # Create maps - VLMaps
+    cd vlmaps
+    ./setup_environment.sh
+    ./0_1_run_benchmark_vlmaps.sh
+    cd ..
+    # Create maps - OpenScene
+    # Fuse OpenSeg features (steps 1-3)
+    cd openscene
+    ./A_part1.sh
+    cd ..
+    # Fuse LSeg features
+    cd openscene-lseg
+    ./1.sh
+    ./2.sh
+    cd ..
+    # Eval OpenScene maps and parse
+    cd openscene
+    ./A_part2.sh
+    cd ..
+    # Analyze results
+    cd vlmaps
+    ./run_C_analyze.sh
+    cd ..
+```
 
 ## Citation
 
@@ -37,5 +62,28 @@ If you find this work useful, please consider citing:
 ```
 
 ## Acknowledgements
+
+This software is built upon on the original works of [vlmaps](https://github.com/vlmaps/vlmaps), [openscene](https://github.com/pengsongyou/openscene), [openscene-lseg](https://github.com/pengsongyou/lseg_feature_extraction).
+
+```bibtex
+@inproceedings{huang23vlmaps,
+               title={Visual Language Maps for Robot Navigation},
+               author={Chenguang Huang and Oier Mees and Andy Zeng and Wolfram Burgard},
+               booktitle = {Proceedings of the IEEE International Conference
+                            on Robotics and Automation (ICRA)},
+               year={2023},
+               address = {London, UK}
+}
+
+@inproceedings{Peng2023OpenScene,
+  title     = {OpenScene: 3D Scene Understanding with Open Vocabularies},
+  author    = {Peng, Songyou and Genova, Kyle and Jiang, Chiyu "Max" and Tagliasacchi,
+               Andrea and Pollefeys, Marc and Funkhouser, Thomas},
+  booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern
+               Recognition (CVPR)},
+  year      = {2023}
+}
+
+```
 
 This work was supported by Business Finland (decision 9249/31/2021), the Research Council of Finland (decision 354909), Wallenberg AI, Autonomous Systems and Software Program, WASP and Saab AB. We gratefully acknowledge the support of NVIDIA Corporation with the donation of the Titan Xp GPUs used for this research.

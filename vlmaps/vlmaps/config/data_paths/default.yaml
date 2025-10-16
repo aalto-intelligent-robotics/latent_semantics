@@ -1,0 +1,4 @@
+home: /your/home/dir
+habitat_scene_dir: /you/home/dir/hdd/datasets/matterport3d/v1/tasks/mp3d"
+vlmaps_data_dir: /you/home/dir/hdd/datasets/"
+map_prefix: "vlmaps" # "vlmaps", "vlmaps-openseg
